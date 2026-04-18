@@ -7,19 +7,19 @@ public abstract class Usuario {
     private long idUser;
     private String nomeUser;
     private String emailUser;
-    private String senhaUSer;
+    private String senhaUser;
     private String cpfUser;
     private String telefoneUser;
-    private String enderecoUser;
+    private Endereco enderecoUser;
     private PerfilEnum perfil;
     private boolean ativo;
 
-    public Usuario(long idUser, String nomeUser, String emailUser, String senhaUSer, String cpfUser, String telefoneUser, String enderecoUser,
+    public Usuario(long idUser, String nomeUser, String emailUser, String senhaUSer, String cpfUser, String telefoneUser, Endereco enderecoUser,
                    PerfilEnum perfil, boolean ativo) {
         this.idUser = idUser;
         this.nomeUser = nomeUser;
         this.emailUser = emailUser;
-        this.senhaUSer = senhaUSer;
+        this.senhaUser = senhaUSer;
         this.cpfUser = cpfUser;
         this.telefoneUser = telefoneUser;
         this.enderecoUser = enderecoUser;
@@ -27,11 +27,11 @@ public abstract class Usuario {
         this.ativo = ativo;
     }
 
-    public Usuario(String nomeUser, String emailUser, String senhaUSer, String cpfUser, String telefoneUser, String enderecoUser,
+    public Usuario(String nomeUser, String emailUser, String senhaUSer, String cpfUser, String telefoneUser, Endereco enderecoUser,
                    PerfilEnum perfil, boolean ativo) {
         this.nomeUser = nomeUser;
         this.emailUser = emailUser;
-        this.senhaUSer = senhaUSer;
+        this.senhaUser = senhaUSer;
         this.cpfUser = cpfUser;
         this.telefoneUser = telefoneUser;
         this.enderecoUser = enderecoUser;
@@ -55,11 +55,11 @@ public abstract class Usuario {
         this.perfil = perfil;
     }
 
-    public String getEnderecoUser() {
+    public Endereco getEnderecoUser() {
         return enderecoUser;
     }
 
-    public void setEnderecoUser(String enderecoUser) {
+    public void setEnderecoUser(Endereco enderecoUser) {
         this.enderecoUser = enderecoUser;
     }
 
@@ -80,11 +80,11 @@ public abstract class Usuario {
     }
 
     public String getSenhaUSer() {
-        return senhaUSer;
+        return senhaUser;
     }
 
     public void setSenhaUSer(String senhaUSer) {
-        this.senhaUSer = senhaUSer;
+        this.senhaUser = senhaUSer;
     }
 
     public String getEmailUser() {
