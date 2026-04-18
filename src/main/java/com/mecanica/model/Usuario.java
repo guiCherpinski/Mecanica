@@ -4,7 +4,7 @@ import com.mecanica.enums.PerfilEnum;
 
 public abstract class Usuario {
 
-    private long idUser;
+    private Long idUser;
     private String nomeUser;
     private String emailUser;
     private String senhaUser;
@@ -14,7 +14,7 @@ public abstract class Usuario {
     private PerfilEnum perfil;
     private boolean ativo;
 
-    public Usuario(long idUser, String nomeUser, String emailUser, String senhaUSer, String cpfUser, String telefoneUser, Endereco enderecoUser,
+    public Usuario(Long idUser, String nomeUser, String emailUser, String senhaUSer, String cpfUser, String telefoneUser, Endereco enderecoUser,
                    PerfilEnum perfil, boolean ativo) {
         this.idUser = idUser;
         this.nomeUser = nomeUser;
@@ -79,11 +79,11 @@ public abstract class Usuario {
         this.cpfUser = cpfUser;
     }
 
-    public String getSenhaUSer() {
+    public String getSenhaUser() {
         return senhaUser;
     }
 
-    public void setSenhaUSer(String senhaUSer) {
+    public void setSenhaUser(String senhaUSer) {
         this.senhaUser = senhaUSer;
     }
 
@@ -103,11 +103,11 @@ public abstract class Usuario {
         this.nomeUser = nomeUser;
     }
 
-    public long getIdUser() {
+    public Long getIdUser() {
         return idUser;
     }
 
-    public void setIdUser(long idUser) {
+    public void setIdUser(Long idUser) {
         this.idUser = idUser;
     }
 }
