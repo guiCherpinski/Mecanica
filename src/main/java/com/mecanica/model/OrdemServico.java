@@ -6,7 +6,7 @@ import java.time.LocalDate;
 
 public class OrdemServico {
 
-    private long idOS;
+    private Long idOS;
     private String numero;
     private LocalDate dataAbertura;
     private LocalDate dataPrevisao;
