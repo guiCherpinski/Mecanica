@@ -3,7 +3,7 @@ package com.mecanica.enums;
 public enum TipoVeiculoEnum {
     CARRO(1),
     MOTO(2),
-    CAMINHA0(3),
+    CAMINHAO(3),
     VAN(4),
     UTILITARIO(5),
     ONIBUS(6);
