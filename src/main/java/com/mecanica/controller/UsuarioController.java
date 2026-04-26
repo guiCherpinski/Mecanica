@@ -2,6 +2,7 @@ package com.mecanica.controller;
 
 import com.mecanica.enums.CategoriaEnum;
 import com.mecanica.model.Endereco;
+import com.mecanica.service.UsuarioService;
 
 public class UsuarioController {
 
