@@ -21,7 +21,12 @@ public class UsuarioService {
         validarCpf(cpf);
         validarTelefone(telefone);
 
-
+        validarLogradouro(logradouro);
+        validarNumero(numero);
+        validarBairro(bairro);
+        validarCidade(cidade);
+        validarEstado(estado);
+        validarCep(cep);
 
         Endereco endereco = new Endereco(logradouro,numero,complemento,bairro,cidade,estado,cep);
         Usuario usuario = new Cliente(nome,email,senha,cpf,telefone,endereco,ativo);
@@ -38,7 +43,12 @@ public class UsuarioService {
         validarCpf(cpf);
         validarTelefone(telefone);
 
-
+        validarLogradouro(logradouro);
+        validarNumero(numero);
+        validarBairro(bairro);
+        validarCidade(cidade);
+        validarEstado(estado);
+        validarCep(cep);
 
         Endereco endereco = new Endereco(logradouro, numero, complemento, bairro, cidade, estado, cep);
         Usuario usuario = new Tecnico(nome, email, senha, cpf, telefone, endereco, ativo, especialidade, categoriaEnum);
@@ -53,7 +63,12 @@ public class UsuarioService {
         validarCpf(cpf);
         validarTelefone(telefone);
 
-
+        validarLogradouro(logradouro);
+        validarNumero(numero);
+        validarBairro(bairro);
+        validarCidade(cidade);
+        validarEstado(estado);
+        validarCep(cep);
 
         Endereco endereco = new Endereco(logradouro, numero, complemento, bairro, cidade, estado, cep);
         Usuario usuario = new Gerente(nome,email,senha,cpf,telefone,endereco,ativo);
@@ -115,6 +130,51 @@ public class UsuarioService {
     public void validarTelefone(String telefone){
         if (telefone.length() != 11){
             throw new IllegalArgumentException("ERRO - TAMANHO DE TELEFONE INVÁLIDO!");
+        }
+    }
+
+    public void validarLogradouro(String logradouro){
+        if (logradouro.length() < 5){
+            throw new IllegalArgumentException("ERRO - LOGRADOURO MUITO CURTO!");
+        }
+    }
+
+    public void validarNumero(String numero){
+        if (numero.matches(".*[<>?|\\/].*")) {
+            throw new RuntimeException("ERRO - CARACTÉR INVÁLIDO DIGITADO!");
+        }
+
+        if (numero.matches("-\\d+")) {
+            throw new RuntimeException("ERRO - NÚMERO DEVE SER POSITIVO!");
+        }
+    }
+
+    public void validarBairro(String bairro){
+        if (bairro.length() < 3){
+            throw new IllegalArgumentException("ERRO - NOME DE BAIRRO MUITO CURTO!");
+        }
+    }
+
+    public void validarCidade(String cidade){
+        if (cidade.matches(".*\\d.*")) {
+            throw new RuntimeException("ERRO - NOME DE CIDADE NÃO PODE CONTER NÚMERO!");
+        }
+
+        if (cidade.length() < 3){
+            throw new IllegalArgumentException("ERRO - NOME DE CIDADE MUITO CURTO!");
+        }
+    }
+
+    public void validarEstado(String estado){
+        if (estado.length() != 2){
+            throw new IllegalArgumentException("ERRO - DIGITE APENAS A SIGLA DO ESTADO!");
+        }
+    }
+
+    public void validarCep(String cep){
+        String apenasNumeros = cep.replaceAll("[^0-9]", "");
+        if (apenasNumeros.length() != 8){
+            throw new IllegalArgumentException("ERRO - CEP DEVE CONTER EXATOS 8 NÚMEROS!");
         }
     }
 }
