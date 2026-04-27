@@ -1,9 +1,7 @@
 package com.mecanica.service;
 
 import com.mecanica.enums.CategoriaEnum;
-import com.mecanica.model.Cliente;
-import com.mecanica.model.Endereco;
-import com.mecanica.model.Usuario;
+import com.mecanica.model.*;
 
 import java.util.IllegalFormatCodePointException;
 
@@ -19,8 +17,8 @@ public class UsuarioService {
         validarNome(nome);
         validarEmail(email);
         validarSenha(senha);
-        validarTelefone(telefone);
         validarCpf(cpf);
+        validarTelefone(telefone);
 
         Usuario usuario = new Cliente(nome,email,senha,cpf,telefone,endereco,ativo);
         usuarioDAO.insertCliente(usuario);
@@ -28,11 +26,25 @@ public class UsuarioService {
 
     public void cadastrarTecnico(String nome, String email, String senha, String cpf, String telefone, Endereco endereco, boolean ativo,
                                  String especialidade, CategoriaEnum categoriaEnum){
+        validarNome(nome);
+        validarEmail(email);
+        validarSenha(senha);
+        validarCpf(cpf);
+        validarTelefone(telefone);
 
+        Usuario usuario = new Tecnico(nome, email, senha, cpf, telefone, endereco, ativo, especialidade, categoriaEnum);
+        usuarioDAO.insertTecnico(nome,email,senha,cpf,telefone,endereco,ativo,especialidade,categoriaEnum);
     }
 
     public void cadastrarGerente(String nome, String email, String senha, String cpf, String telefone, Endereco endereco, boolean ativo){
+        validarNome(nome);
+        validarEmail(email);
+        validarSenha(senha);
+        validarCpf(cpf);
+        validarTelefone(telefone);
 
+        Usuario usuario = new Gerente(nome,email,senha,cpf,telefone,endereco,ativo);
+        usuarioDAO.insertGerente(usuario);
     }
 
     public void validarNome(String nome){
