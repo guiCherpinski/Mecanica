@@ -13,18 +13,24 @@ public class UsuarioService {
         this.usuarioDAO = usuarioDAO;
     }
 
-    public void cadastrarCliente(String nome, String email, String senha, String cpf, String telefone, Endereco endereco, boolean ativo){
+    public void cadastrarCliente(String nome, String email, String senha, String cpf, String telefone, boolean ativo, String logradouro, String numero,
+                                 String complemento, String bairro, String cidade, String estado, String cep){
         validarNome(nome);
         validarEmail(email);
         validarSenha(senha);
         validarCpf(cpf);
         validarTelefone(telefone);
 
+
+
+        Endereco endereco = new Endereco(logradouro,numero,complemento,bairro,cidade,estado,cep);
         Usuario usuario = new Cliente(nome,email,senha,cpf,telefone,endereco,ativo);
+
         usuarioDAO.insertCliente(usuario);
     }
 
-    public void cadastrarTecnico(String nome, String email, String senha, String cpf, String telefone, Endereco endereco, boolean ativo,
+    public void cadastrarTecnico(String nome, String email, String senha, String cpf, String telefone, boolean ativo, String logradouro, String numero,
+                                 String complemento, String bairro, String cidade, String estado, String cep,
                                  String especialidade, CategoriaEnum categoriaEnum){
         validarNome(nome);
         validarEmail(email);
@@ -32,17 +38,24 @@ public class UsuarioService {
         validarCpf(cpf);
         validarTelefone(telefone);
 
+
+
+        Endereco endereco = new Endereco(logradouro, numero, complemento, bairro, cidade, estado, cep);
         Usuario usuario = new Tecnico(nome, email, senha, cpf, telefone, endereco, ativo, especialidade, categoriaEnum);
         usuarioDAO.insertTecnico(nome,email,senha,cpf,telefone,endereco,ativo,especialidade,categoriaEnum);
     }
 
-    public void cadastrarGerente(String nome, String email, String senha, String cpf, String telefone, Endereco endereco, boolean ativo){
+    public void cadastrarGerente(String nome, String email, String senha, String cpf, String telefone, boolean ativo, String logradouro, String numero,
+                                 String complemento, String bairro, String cidade, String estado, String cep){
         validarNome(nome);
         validarEmail(email);
         validarSenha(senha);
         validarCpf(cpf);
         validarTelefone(telefone);
 
+
+
+        Endereco endereco = new Endereco(logradouro, numero, complemento, bairro, cidade, estado, cep);
         Usuario usuario = new Gerente(nome,email,senha,cpf,telefone,endereco,ativo);
         usuarioDAO.insertGerente(usuario);
     }

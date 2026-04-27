@@ -12,41 +12,67 @@ public class UsuarioController {
         this.usuarioService = usuarioService;
     }
 
-    public void cadastrarCliente(String nome, String email, String senha, String cpf, String telefone, Endereco endereco, boolean ativo){
+    public void cadastrarCliente(String nome, String email, String senha, String cpf, String telefone, boolean ativo, String logradouro, String numero,
+                                 String complemento, String bairro, String cidade, String estado, String cep){
         validarNome(nome);
         validarEmail(email);
         validarSenha(senha);
         validarCpf(cpf);
         validarTelefone(telefone);
-        validarEndereco(endereco);
 
+        validarLogradouro(logradouro);
+        validarNumero(numero);
+        validarComplemento(complemento);
+        validarBairro(bairro);
+        validarCidade(cidade);
+        validarEstado(estado);
+        validarCep(cep);
 
-        usuarioService.cadastrarCliente(nome,email,senha,cpf,telefone,endereco,ativo);
+        usuarioService.cadastrarCliente(nome,email,senha,cpf,telefone,ativo,logradouro, numero, complemento,
+                bairro, cidade, estado, cep);
     }
 
     public void cadastrarTecnico(String nome, String email, String senha, String cpf, String telefone, Endereco endereco, boolean ativo,
-                                 String especialidade, CategoriaEnum categoriaEnum){
+                                 String especialidade, CategoriaEnum categoriaEnum,  String logradouro, String numero,
+                                 String complemento, String bairro, String cidade, String estado, String cep){
         validarNome(nome);
         validarEmail(email);
         validarSenha(senha);
         validarCpf(cpf);
         validarTelefone(telefone);
-        validarEndereco(endereco);
         validarEspecialidade(especialidade);
         validarCategoria(categoriaEnum);
 
-        usuarioService.cadastrarTecnico(nome,email,senha,cpf,telefone,endereco,ativo,especialidade,categoriaEnum);
+        validarLogradouro(logradouro);
+        validarNumero(numero);
+        validarComplemento(complemento);
+        validarBairro(bairro);
+        validarCidade(cidade);
+        validarEstado(estado);
+        validarCep(cep);
+
+        usuarioService.cadastrarTecnico(nome, email, senha, cpf, telefone, ativo,
+                logradouro, numero, complemento, bairro, cidade, estado, cep, especialidade, categoriaEnum);
     }
 
-    public void cadastrarGerente(String nome, String email, String senha, String cpf, String telefone, Endereco endereco, boolean ativo){
+    public void cadastrarGerente(String nome, String email, String senha, String cpf, String telefone, Endereco endereco, boolean ativo, String logradouro,
+                                 String numero, String complemento, String bairro, String cidade, String estado, String cep){
         validarNome(nome);
         validarEmail(email);
         validarSenha(senha);
         validarCpf(cpf);
         validarTelefone(telefone);
-        validarEndereco(endereco);
 
-        usuarioService.cadastrarGerente(nome,email,senha,cpf,telefone,endereco,ativo);
+        validarLogradouro(logradouro);
+        validarNumero(numero);
+        validarComplemento(complemento);
+        validarBairro(bairro);
+        validarCidade(cidade);
+        validarEstado(estado);
+        validarCep(cep);
+
+        usuarioService.cadastrarGerente(nome,email,senha,cpf,telefone,ativo, logradouro, numero, complemento,
+                bairro, cidade, estado, cep);
     }
 
     public void validarNome(String nome){
@@ -79,12 +105,6 @@ public class UsuarioController {
         }
     }
 
-    public void validarEndereco(Endereco endereco){
-        if (endereco == null){
-            throw new IllegalArgumentException("ERRO - ENDEREÇO NÃO PODE SER VAZIO!");
-        }
-    }
-
     public void validarEspecialidade(String especialidade){
         if (especialidade == null || especialidade.isBlank()){
             throw new IllegalArgumentException("ERRO - ESPECIALIDADE NÃO PODE SER VAZIA!");
@@ -94,6 +114,48 @@ public class UsuarioController {
     public void validarCategoria(CategoriaEnum categoria){
         if (categoria == null){
             throw new IllegalArgumentException("ERRO - CATEGORIA NÃO PODE SER NULA!");
+        }
+    }
+
+    public void validarLogradouro(String logradouro){
+        if (logradouro == null || logradouro.isBlank()){
+            throw new IllegalArgumentException("ERRO - LOGRADOURO NÃO PODE SER VAZIO!");
+        }
+    }
+
+    public void validarNumero(String numero){
+        if (numero == null || numero.isBlank()){
+            throw new IllegalArgumentException("ERRO - NÚMERO NÃO PODE SER VAZIO!");
+        }
+    }
+
+    public void validarComplemento(String complemento){
+        if (complemento == null ||complemento.isBlank()){
+            throw new IllegalArgumentException("ERRO - COMPLEMENTO NÃO PODE SER VAZIO!");
+        }
+    }
+
+    public void validarBairro(String bairro){
+        if (bairro == null || bairro.isBlank()){
+            throw new IllegalArgumentException("ERRO - BAIRRO NÃO PODE SER VAZIO!");
+        }
+    }
+
+    public void validarCidade(String cidade){
+        if (cidade == null || cidade.isBlank()){
+            throw new IllegalArgumentException("ERRO - CIDADE NÃO PODE SER VAZIO!");
+        }
+    }
+
+    public void validarEstado(String estado){
+        if (estado == null || estado.isBlank()){
+            throw new IllegalArgumentException("ERRO - ESTADO NÃO PODE SER VAZIO!");
+        }
+    }
+
+    public void validarCep(String cep){
+        if (cep == null || cep.isBlank()){
+            throw new IllegalArgumentException("ERRO - CEP NÃO PODE SER VAZIO!");
         }
     }
 }
