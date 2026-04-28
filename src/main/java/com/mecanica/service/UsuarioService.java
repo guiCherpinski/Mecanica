@@ -1,5 +1,6 @@
 package com.mecanica.service;
 
+import com.mecanica.dao.UsuarioDAO;
 import com.mecanica.enums.CategoriaEnum;
 import com.mecanica.model.*;
 
@@ -31,7 +32,7 @@ public class UsuarioService {
         Endereco endereco = new Endereco(logradouro,numero,complemento,bairro,cidade,estado,cep);
         Usuario usuario = new Cliente(nome,email,senha,cpf,telefone,endereco,ativo);
 
-        usuarioDAO.insertCliente(usuario);
+        usuarioDAO.insertUsuario(usuario);
     }
 
     public void cadastrarTecnico(String nome, String email, String senha, String cpf, String telefone, boolean ativo, String logradouro, String numero,
@@ -52,7 +53,7 @@ public class UsuarioService {
 
         Endereco endereco = new Endereco(logradouro, numero, complemento, bairro, cidade, estado, cep);
         Usuario usuario = new Tecnico(nome, email, senha, cpf, telefone, endereco, ativo, especialidade, categoriaEnum);
-        usuarioDAO.insertTecnico(nome,email,senha,cpf,telefone,endereco,ativo,especialidade,categoriaEnum);
+        usuarioDAO.insertUsuario(usuario);
     }
 
     public void cadastrarGerente(String nome, String email, String senha, String cpf, String telefone, boolean ativo, String logradouro, String numero,
@@ -72,7 +73,7 @@ public class UsuarioService {
 
         Endereco endereco = new Endereco(logradouro, numero, complemento, bairro, cidade, estado, cep);
         Usuario usuario = new Gerente(nome,email,senha,cpf,telefone,endereco,ativo);
-        usuarioDAO.insertGerente(usuario);
+        usuarioDAO.insertUsuario(usuario);
     }
 
     public void validarNome(String nome){
