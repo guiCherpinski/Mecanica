@@ -49,6 +49,6 @@ public class UsuarioDAO {
             }
         } catch (SQLException e) {
         throw new RuntimeException("ERRO - FALHA AO SALVAR USUÁRIO!", e);
-    }
+        }
     }
 }
