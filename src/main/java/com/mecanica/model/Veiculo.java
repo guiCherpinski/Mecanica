@@ -7,39 +7,42 @@ public class Veiculo {
     private Long idVeiculo;
     private String placaVeiculo;
     private String marcaVeiculo;
-    private String modelo;
+    private String modeloVeiculo;
     private int anoVeiculo;
     private String corVeiculo;
     private TipoVeiculoEnum tipoVeiculo;
     private double quilometragemVeiculo;
     private String numeroChassi;
     private String renavam;
+    private Cliente donoVeiculo;
 
-    public Veiculo(Long idVeiculo, String placaVeiculo, String marcaVeiculo, String modelo,
-                   int anoVeiculo, String corVeiculo, TipoVeiculoEnum tipoVeiculo, double quilometragemVeiculo, String numeroChassi, String renavam) {
+    public Veiculo(Long idVeiculo, String placaVeiculo, String marcaVeiculo, String modeloVeiculo,
+                   int anoVeiculo, String corVeiculo, TipoVeiculoEnum tipoVeiculo, double quilometragemVeiculo, String numeroChassi, String renavam, Cliente donoVeiculo) {
         this.idVeiculo = idVeiculo;
         this.placaVeiculo = placaVeiculo;
         this.marcaVeiculo = marcaVeiculo;
-        this.modelo = modelo;
+        this.modeloVeiculo = modeloVeiculo;
         this.anoVeiculo = anoVeiculo;
         this.corVeiculo = corVeiculo;
         this.tipoVeiculo = tipoVeiculo;
         this.quilometragemVeiculo = quilometragemVeiculo;
         this.numeroChassi = numeroChassi;
         this.renavam = renavam;
+        this.donoVeiculo = donoVeiculo;
     }
 
-    public Veiculo(String placaVeiculo, String marcaVeiculo, String modelo,
-                   int anoVeiculo, String corVeiculo, TipoVeiculoEnum tipoVeiculo, double quilometragemVeiculo, String numeroChassi, String renavam) {
+    public Veiculo(String placaVeiculo, String marcaVeiculo, String modeloVeiculo,
+                   int anoVeiculo, String corVeiculo, TipoVeiculoEnum tipoVeiculo, double quilometragemVeiculo, String numeroChassi, String renavam, Cliente donoVeiculo) {
         this.placaVeiculo = placaVeiculo;
         this.marcaVeiculo = marcaVeiculo;
-        this.modelo = modelo;
+        this.modeloVeiculo = modeloVeiculo;
         this.anoVeiculo = anoVeiculo;
         this.corVeiculo = corVeiculo;
         this.tipoVeiculo = tipoVeiculo;
         this.quilometragemVeiculo = quilometragemVeiculo;
         this.numeroChassi = numeroChassi;
         this.renavam = renavam;
+        this.donoVeiculo = donoVeiculo;
     }
 
     public Long getIdVeiculo() {
@@ -66,12 +69,12 @@ public class Veiculo {
         this.marcaVeiculo = marcaVeiculo;
     }
 
-    public String getModelo() {
-        return modelo;
+    public String getModeloVeiculo() {
+        return modeloVeiculo;
     }
 
-    public void setModelo(String modelo) {
-        this.modelo = modelo;
+    public void setModeloVeiculo(String modeloVeiculo) {
+        this.modeloVeiculo = modeloVeiculo;
     }
 
     public int getAnoVeiculo() {
@@ -120,5 +123,13 @@ public class Veiculo {
 
     public void setRenavam(String renavam) {
         this.renavam = renavam;
+    }
+
+    public Cliente getDonoVeiculo() {
+        return donoVeiculo;
+    }
+
+    public void setDonoVeiculo(Cliente donoVeiculo) {
+        this.donoVeiculo = donoVeiculo;
     }
 }
