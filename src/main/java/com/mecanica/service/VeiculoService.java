@@ -1,8 +1,20 @@
 package com.mecanica.service;
 
+import com.mecanica.dao.UsuarioDAO;
+import com.mecanica.dao.VeiculoDAO;
 import com.mecanica.enums.TipoVeiculoEnum;
+import com.mecanica.model.Cliente;
+import com.mecanica.model.Veiculo;
 
 public class VeiculoService {
+
+    public final VeiculoDAO veiculoDAO;
+    public final UsuarioDAO usuarioDAO;
+
+    public VeiculoService(VeiculoDAO veiculoDAO, UsuarioDAO usuarioDAO){
+        this.veiculoDAO = veiculoDAO;
+        this.usuarioDAO = usuarioDAO;
+    }
 
     public void cadastrarVeiculo(String placa, String marca, String modelo, int ano,
                                  String cor, TipoVeiculoEnum tipo, double quilometragem,
@@ -11,6 +23,10 @@ public class VeiculoService {
         validarPlacaVeiculo(placa);
         validarAnoVeiculo(ano);
         validarRenavamVeiculo(renavam);
+        Cliente cliente = buscarClienteId(idCliente);
+        Veiculo veiculo = new Veiculo(placa,marca,modelo,ano,cor,tipo,quilometragem,chassi,renavam,cliente);
+
+        veiculoDAO.cadastrarVeiculo(veiculo);
     }
 
 
